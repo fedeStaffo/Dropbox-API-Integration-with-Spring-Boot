@@ -5,27 +5,30 @@ public class FileModel {
 	private String tag;
 	private String name;
 	private String extension;
-	private String id;
-	//private String client_modified;
-	//private String server_modified;
-	//private String rev;
-	
-	//superclasse di tutti i tipi numerici primitivi
-	private Number size; 
-	//private String is_downloadable;
-	//private String content_hash;
+	private String id;	
+	private Number size; // Number: superclasse di tutti i tipi numerici primitivi
 	private String path;
-	private boolean shared;
+
 	
 	
 	
-	public FileModel(String tag, String name, String extension, String path, String id, Number size,  boolean shared) {
+	public FileModel(String tag, String name, String extension, String path, String id, Number size) {
+		
+		this.tag = tag;
 		this.name = name;
 		this.extension = extension;
 		this.id = id;
 		this.size = size;
 		this.path = path;
-		this.shared = shared;
+	}
+	
+	// getter & setter
+	public String getTag() {
+		return tag;
+	}
+
+	public void setTag(String tag) {
+		this.tag = tag;
 	}
 	
 	public String getName() {
@@ -47,23 +50,15 @@ public class FileModel {
 	public void setPath(String path) {
 		this.path = path;
 	}
-
-	public String getTag() {
-		return tag;
+	
+	public String getId() {
+		return id;
 	}
 
-	public void setTag(String tag) {
-		this.tag = tag;
+	public void setId(String id) {
+		this.id = id;
 	}
-
-	public boolean isShared() {
-		return shared;
-	}
-
-	public void setShared(boolean shared) {
-		this.shared = shared;
-	}
-
+	
 	public Number getSize() {
 		return size;
 	}
@@ -72,13 +67,9 @@ public class FileModel {
 		this.size = size;
 	}
 
-	public String getId() {
-		return id;
+	public String toString() {
+		return "Tag: "+ tag + "\nName: " + name + "\nExtension: " 
+			+ extension + "\nPath: " + path + "\nSize:" +size+ "\n\n";
 	}
-
-	public void setId(String id) {
-		this.id = id;
-	}
-
 	
 }
