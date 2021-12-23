@@ -8,12 +8,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
-//import java.net.URI;
 import java.net.URL;
-//import java.net.URLConnection;
-//import java.nio.file.Files;
-//import java.nio.file.Paths;
-
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
@@ -36,7 +31,7 @@ public class GetInfoFromJSON {
 			openConnection.setRequestProperty("Accept", "application/json");
 			openConnection.setDoOutput(true); // per permettere l'inserimento del body
 			String jsonBody = "{\r\n" + "    \"path\": \"\",\r\n" 
-					+ "    \"recursive\": false,\r\n"
+					+ "    \"recursive\": true,\r\n" //true in quanto permette di vedere le sottocartelle
 					+ "    \"include_media_info\": false,\r\n" 
 					+ "    \"include_deleted\": false,\r\n"
 					+ "    \"include_has_explicit_shared_members\": false,\r\n"
@@ -77,20 +72,29 @@ public class GetInfoFromJSON {
 				String extension;
 				
 				if (!(tag.equals("folder"))) {
-					extension = name.substring(name.lastIndexOf(".", 0));
+					
+					if(name.lastIndexOf("." ) >= 0) // controllo se c'è il punto dell'estensione nella stringa name
+					{
+						extension = name.substring(name.lastIndexOf("."));
+					}
+					else 
+					{
+						extension = "unknown"; // estensione sconosciuta se lastIndexOf ritorna -1 ossia non ha trovato "." nella stringa "name"
+					}
+					
+					size = (Number) obj2.get("size");
 				} 
-				else 
+				else // setta come vuoti i parametri che non coincidono tra file e folder
 				{
 					extension = "null";
+					size = 0;
 				}
 				
 				String path = (String) obj2.get("path_display");
 				String id = (String) obj2.get("id");
-				//String rev = (String) obj2.get("rev");
 				Number size = (Number) obj2.get("size");
-				boolean shared_id = (boolean) obj2.get("shared_folder_id");
 				
-				FileModel file = new FileModel(tag, name, extension, path, id, size, shared_id);
+				FileModel file = new FileModel(tag, name, extension, path, id, size);
 				lista.add(file);
 			}
 		} catch (IOException | ParseException e) {
@@ -101,10 +105,5 @@ public class GetInfoFromJSON {
 		return lista;
 	}
 	
-	public void PrintLista(ArrayList<FileModel> lista) {
-		for (FileModel i :lista) {
-			System.out.println(i.toString());
-		}
-	}
 	
 	}
