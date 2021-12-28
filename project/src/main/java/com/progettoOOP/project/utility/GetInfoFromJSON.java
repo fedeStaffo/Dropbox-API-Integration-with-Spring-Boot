@@ -18,7 +18,7 @@ public class GetInfoFromJSON {
 
 	public ArrayList getInfo() {
 		
-		ArrayList<FileModel> lista = new ArrayList<>();
+		ArrayList<FileModel> lista = new ArrayList<FileModel>();
 		
 		String url = "https://api.dropboxapi.com/2/files/list_folder";
 		try {
