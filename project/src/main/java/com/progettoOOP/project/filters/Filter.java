@@ -2,6 +2,7 @@ package filters;
 
 import java.util.ArrayList;
 import utility.FileModel;
+import exceptions.*;
 import utility.GetInfoFromJSON;
 
 public abstract class Filter {
@@ -9,15 +10,17 @@ public abstract class Filter {
 	private GetInfoFromJSON dropbox;
 	private ArrayList<FileModel> lista;
 	
-	public Filter() 
+	public Filter() throws EmptyListExc
 	{
 		this.dropbox = new GetInfoFromJSON();
-		this.lista = dropbox.getInfo();
-	}
-	
-	// controlla se l'argomento passato è corretto altrimenti lancia il messaggio di eccezione
-	public boolean checkFilter(FileModel file) throws IllegalArgumentException {
-		throw new IllegalArgumentException("Filter parameters are not correct");
+		if(this.dropbox == null) 
+		{
+			throw new EmptyListExc("Empty JSON database");
+		}
+		else 
+		{
+			this.lista = dropbox.getInfo();
+		}
 	}
 	
 	// generica funzione di filtraggio
