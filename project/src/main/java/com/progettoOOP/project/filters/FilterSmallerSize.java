@@ -1,29 +1,46 @@
 package filters;
 
 import java.util.ArrayList;
-
+import exceptions.EmptyListExc;
 import utility.FileModel;
 
+/**
+ * This class is the implementation of {@link Filter} for the filter on file's size
+ * @author Porfiri Pierandrea
+ * @author Staffolani Federico
+ */
 public class FilterSmallerSize extends Filter{
 
+	/** The size used for comparison */
 	private Number size;
 	
-	public FilterSmallerSize(Number dim) 
+	/**
+	 * Instantiates a new filter smaller size.
+	 *
+	 * @param dimension the dimension
+	 * @throws EmptyListExc the list is empty 
+	 */
+	public FilterSmallerSize(Number dimension) throws EmptyListExc 
 	{
-		super(); // richiama il costruttore di Filter
-		this.size = dim;
+		super(); 
+		this.size = dimension;
 	}
 	
+	/**
+	 * List filter.
+	 *
+	 * @return the filtered ArrayList with all the files with smaller size than the value used for comparison
+	 */
 	@Override
 	public ArrayList<FileModel> listFilter() {
-		// TODO Auto-generated method stub
+		
 		ArrayList<FileModel> lista_filtrata = new ArrayList<FileModel>();
 		
 		for(FileModel x : this.getLista()) 
 		{
-			if(x.getTag().equals("file")) // controlla se l'elemento è un file
+			if(x.getTag().equals("file")) // to check if the element is a file
 			{
-				if(x.getSize().longValue() < this.size.longValue()) // filtra i file con dimensione < dim
+				if(x.getSize().longValue() < this.size.longValue()) 
 				{
 					lista_filtrata.add(x);
 				}
