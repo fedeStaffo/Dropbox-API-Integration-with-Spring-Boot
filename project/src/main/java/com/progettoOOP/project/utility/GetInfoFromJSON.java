@@ -14,9 +14,22 @@ import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
 import org.json.simple.parser.ParseException;
 
+
+/**
+ * This class opens a connection with the chosen api, reading and copying the response json in a String
+ * which gets parsed in the form of a JSONObject
+ * @author Porfiri Pierandrea
+ * @author Staffolani Federico
+ */
 public class GetInfoFromJSON {
 
-	public ArrayList getInfo() {
+	/**
+	 * This method gets the JSONObject from the list_folder api called on the specified path, which gives
+	 * all the files inside the folder
+	 *
+	 * @return the JSONObject relative to the chosen account
+	 */
+	public ArrayList<FileModel> getInfo() {
 		
 		ArrayList<FileModel> lista = new ArrayList<FileModel>();
 		
@@ -29,18 +42,19 @@ public class GetInfoFromJSON {
 					"Bearer k1nzns5DDcMAAAAAAAAAARZGF2TNlUKiZ29wZAfB1KLgCnvucm8bC9ACEfBPjqZj");
 			openConnection.setRequestProperty("Content-Type", "application/json");
 			openConnection.setRequestProperty("Accept", "application/json");
-			openConnection.setDoOutput(true); // per permettere l'inserimento del body
+			openConnection.setDoOutput(true); //to enable the input of body
 			String jsonBody = "{\r\n" + "    \"path\": \"\",\r\n" 
-					+ "    \"recursive\": true,\r\n" //true in quanto permette di vedere le sottocartelle
+					+ "    \"recursive\": true,\r\n" // in order to view eventual sub-folders
 					+ "    \"include_media_info\": false,\r\n" 
 					+ "    \"include_deleted\": false,\r\n"
-					+ "    \"include_has_explicit_shared_members\": true,\r\n"
+					+ "    \"include_has_explicit_shared_members\": true,\r\n" // in order to view if a file is shared
 					+ "    \"include_mounted_folders\": true,\r\n" 
 					+ "    \"include_non_downloadable_files\": true\r\n"
 					+ "}";
 			
-			//	converte la stringa in byte
-			try (OutputStream os = openConnection.getOutputStream()) {
+			//	to convert from String to bytes
+			
+			try (OutputStream os = openConnection.getOutputStream()) { //to read the body with the parameters for the api
 				byte[] input = jsonBody.getBytes("utf-8");
 				os.write(input, 0, input.length);
 			}
@@ -55,6 +69,7 @@ public class GetInfoFromJSON {
 
 				while ((line = buf.readLine()) != null) {
 					data += line;
+					
 				}
 			} finally {
 				in.close();
@@ -75,30 +90,27 @@ public class GetInfoFromJSON {
 				
 				if (!(tag.equals("folder"))) {
 					
-					if(name.lastIndexOf("." ) >= 0) // controllo se c'è il punto dell'estensione nella stringa name
+					if(name.lastIndexOf("." ) >= 0) // check if "." is present in the String name
 					{
-						extension = name.substring(name.lastIndexOf("."));
+					extension = name.substring(name.lastIndexOf("."));
 					}
-					else 
-					{
-						extension = "unknown"; // estensione sconosciuta se lastIndexOf ritorna -1 ossia non ha trovato "." nella stringa "name"
-					}
+					else extension = "unknown"; 
 					
+					date = (String) obj2.get("server_modified");
 					size = (Number) obj2.get("size");
-					date = (String) obj2.get("server_modified);
-					shared = (boolean) obj2.get("has_explicit_shared_members");			 
-								 
+					shared = (boolean) obj2.get("has_explicit_shared_members");
 				} 
-				else // setta come vuoti i parametri che non coincidono tra file e folder
+				else // sets null all the parameters that are prsent in file but not in folder
 				{
 					extension = "null";
 					size = 0;
 					date = "null";
-					shared = false;	
+					shared = false;
 				}
 				
 				String path = (String) obj2.get("path_display");
 				String id = (String) obj2.get("id");
+				
 				
 				FileModel file = new FileModel(tag, name, extension, path, id, size, date, shared);
 				lista.add(file);
@@ -108,8 +120,7 @@ public class GetInfoFromJSON {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return lista;
+		return lista; //returns the JSONObject got from the api
 	}
-	
 	
 	}
