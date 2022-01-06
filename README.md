@@ -41,6 +41,71 @@ Tipo | Rotta | Funzione
 ###### Nota bene: 
 ###### per le richieste contrassegnate dal simbolo (X) le estensioni consentite a scopo dimostrativo sono ".pdf", ".xls", ".jpg", ".doc", "pptx".
 
+### Esempi di risposta alle rotte:
+#### get /data
+viene restituita una lista di file e cartelle con i seguenti attributi, la medesima cosa avviene con i filtri che restituiscono la stessa tipologia di lista
+```json
+   {
+        "tag": "folder",
+        "name": "sottocartella",
+        "extension": "null",
+        "id": "id:bzscu_Fx4CUAAAAAAAAAMw",
+        "server_modified": "null",
+        "size": 0,
+        "path": "/Solo mia/sottocartella",
+        "shared": false
+    },
+    {
+        "tag": "file",
+        "name": "referto copia.doc",
+        "extension": ".doc",
+        "id": "id:bzscu_Fx4CUAAAAAAAAAOQ",
+        "server_modified": "2021-12-27T18:21:59Z",
+        "size": 102912,
+        "path": "/Solo mia/sottocartella/referto copia.doc",
+        "shared": true
+    },
+```
+#### get /stats/dates/mostrecent/.pdf (idem per lastrecent)
+restituisce un **DataModel** ossia un file contente come attributi anno, mese, giorno e nome del file che soddisfa i requisiti della richiesta
+```json
+{
+    "year": 2022,
+    "month": 1,
+    "day": 4,
+    "name": "Esecitazione23.11.pdf"
+}
+```
+#### get /stats/size/biggestfile/.doc (idem per smallest)
+```txt
+The biggest .doc file is referto copia.doc which weight is 12.864 kilobyte
+```
+#### get /stats/size/higherdim/10000 (idem per lowerdim)
+```txt
+I file con dimensione maggiore di 10000 sono:
+7 pdf
+1 documenti excel
+5 immagini jpg
+1 power point
+3 documenti word
+```
+#### get /stats/shared/extension/.jpg
+```txt
+The number of .jpg files shared is: 2
+```
+#### get /stats/shared/folder?path=/Solo mia
+restituisce in formato JSON uno **SharedModel** che mostra quanti file per estensione sono stati condivisi in quel percorso e il totale della loro somma
+```json
+{
+    "tot": "Condivisi per cartella: 1",
+    "extension1": ".pdf: 1",
+    "extension2": ".xls: 0",
+    "extension3": ".jpg: 0",
+    "extension4": ".pptx: 0",
+    "extension5": ".doc: 0"
+}
+```
+
 ## Filtri
 
 I vari tipi di filtro sono:
@@ -71,6 +136,25 @@ I vari tipi di filtro sono:
 ### exceptions:
 ![exceptions](https://user-images.githubusercontent.com/94174873/148402114-4ffc7d9c-1508-4c8b-abec-860e82f29d3c.png)
 
+### com.progettoOOP.project
+![controller](https://user-images.githubusercontent.com/94174873/148406449-b130c00b-d6a8-4a06-ae19-6afcd26066e5.png)
+
+### Sequenze:
+#### get data
+![get data](https://user-images.githubusercontent.com/94174873/148406587-5eb0c841-c898-4076-bb0f-30adb4ebb246.png)
+#### get stats on dates
+![dates1](https://user-images.githubusercontent.com/94174873/148406599-c3b6388a-44b0-478a-a946-3bf63ec0afdf.png)
+![dates2](https://user-images.githubusercontent.com/94174873/148406617-2b281baa-37cd-46ad-8d0f-4b1e292a3e60.png)
+#### get stats on size
+![size1](https://user-images.githubusercontent.com/94174873/148406642-205640cf-a755-460a-9f6b-acb9cc1bd65f.png)
+![size2](https://user-images.githubusercontent.com/94174873/148406662-0c703d45-9176-4229-a6a1-fa084bf6bf7c.png)
+![size3](https://user-images.githubusercontent.com/94174873/148406680-23b222fd-e980-49f5-b36c-74039cc7dc9d.png)
+![size4](https://user-images.githubusercontent.com/94174873/148406705-d9f7717d-8195-4b93-8de3-3fcac9af4935.png)
+#### get stats on shared files
+![shared1](https://user-images.githubusercontent.com/94174873/148406765-e2354979-8c05-46c2-80d4-9e2bd18e7590.png)
+![shared2](https://user-images.githubusercontent.com/94174873/148406772-33e8edc0-b315-4d5e-b6a9-cdfce1715aaa.png)
+#### get filters
+![generic filter](https://user-images.githubusercontent.com/94174873/148406791-327c75eb-37d3-4e52-9f0d-7d1b2d1bcde4.png)
 
 
 ## Get Started
