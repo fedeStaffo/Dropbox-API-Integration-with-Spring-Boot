@@ -1,0 +1,1 @@
+This folder contains png & jpg files which represent diagrams for classes, sequences, controller and packages
