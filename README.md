@@ -39,7 +39,7 @@ Tipo | Rotta | Funzione
 `GET` | /filter/*type*/*parameter* | restituisce l'intero database di Dropbox filtrato secondo quanto specificato
 
 ###### Nota bene: 
-per le richieste contrassegnate dal simbolo (X) le estensioni consentite a scopo dimostrativo sono ".pdf", ".xls", ".jpg", ".doc", "pptx".
+###### per le richieste contrassegnate dal simbolo (X) le estensioni consentite a scopo dimostrativo sono ".pdf", ".xls", ".jpg", ".doc", "pptx".
 
 ## Filtri
 
@@ -86,11 +86,13 @@ I vari tipi di filtro sono:
 *  **Eclipse**: l'ambiente di sviluppo integrato utilizzato per la realizzazione del progetto
 * **Spring (v2.6.1)**: Spring Boot è un framework per lo sviluppo di applicazioni web basate su codice Java, offre vantaggi riguardo la parziale automazione del setup e configurazione del progetto e di gestione delle dipendenze                
 * **Maven**: strumento di build automation utilizzato per la gestione delle dipendenze dell'applicazione
-* **JUnit**: Framework utilizzato per fare test unitari sul codice
+* **JUnit**: framework utilizzato per fare test unitari sul codice
+* **Postman**: tool utilizzato per fare chiamate a http://localhost:8080
 * **VisualParadigm**: tool per la creazione dei diagrammi UML
 
 # Autori
 
-Porfiri Pierandrea: S1093332@studenti.univpm.it 
-
-Staffolani Federico: S1097620@studenti.univpm.it
+Nome | Mail | Contributo
+---- | ---- | ----
+Porfiri Pierandrea | S1093332@studenti.univpm.it | 50%
+Staffolani Federico | S1097620@studenti.univpm.it | 50%
