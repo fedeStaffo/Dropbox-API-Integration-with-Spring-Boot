@@ -38,8 +38,7 @@ Tipo | Rotta | Funzione
 `GET` | /stats/shared/folder | restituisce una stringa con il numero di file condivisi nella cartella specificata divisi per estensione (X)
 `GET` | /filter/*type*/*parameter* | restituisce l'intero database di Dropbox filtrato secondo quanto specificato
 
-###### Nota bene: 
-###### per le richieste contrassegnate dal simbolo (X) le estensioni consentite a scopo dimostrativo sono ".pdf", ".xls", ".jpg", ".doc", "pptx".
+###### Nota bene: per le richieste contrassegnate dal simbolo (X) le estensioni consentite a scopo dimostrativo sono ".pdf", ".xls", ".jpg", ".doc", "pptx".
 
 ### Esempi di risposta alle rotte:
 #### get /data
