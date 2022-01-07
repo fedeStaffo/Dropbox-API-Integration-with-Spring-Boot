@@ -131,7 +131,7 @@ I vari tipi di filtro sono:
 ![filters](https://user-images.githubusercontent.com/94174873/148402087-0d033e18-3e9a-4ac8-8aca-f4fef3bcba2e.png)
 
 ### stats:
-![stats](https://user-images.githubusercontent.com/94174873/148402023-0e14093d-1d38-4bd1-b710-567e06b77c3c.png)
+![stats](https://user-images.githubusercontent.com/94174873/148517357-9a1b9de8-53ca-4422-a39d-04a52c2b0a99.png)
 
 ### exceptions:
 ![exceptions](https://user-images.githubusercontent.com/94174873/148402114-4ffc7d9c-1508-4c8b-abec-860e82f29d3c.png)
@@ -142,17 +142,26 @@ I vari tipi di filtro sono:
 ### Sequenze:
 #### get data
 ![get data](https://user-images.githubusercontent.com/94174873/148406587-5eb0c841-c898-4076-bb0f-30adb4ebb246.png)
+
 #### get stats on dates
 ![dates1](https://user-images.githubusercontent.com/94174873/148406599-c3b6388a-44b0-478a-a946-3bf63ec0afdf.png)
+
 ![dates2](https://user-images.githubusercontent.com/94174873/148406617-2b281baa-37cd-46ad-8d0f-4b1e292a3e60.png)
+
 #### get stats on size
 ![size1](https://user-images.githubusercontent.com/94174873/148406642-205640cf-a755-460a-9f6b-acb9cc1bd65f.png)
+
 ![size2](https://user-images.githubusercontent.com/94174873/148406662-0c703d45-9176-4229-a6a1-fa084bf6bf7c.png)
+
 ![size3](https://user-images.githubusercontent.com/94174873/148406680-23b222fd-e980-49f5-b36c-74039cc7dc9d.png)
+
 ![size4](https://user-images.githubusercontent.com/94174873/148406705-d9f7717d-8195-4b93-8de3-3fcac9af4935.png)
+
 #### get stats on shared files
 ![shared1](https://user-images.githubusercontent.com/94174873/148406765-e2354979-8c05-46c2-80d4-9e2bd18e7590.png)
+
 ![shared2](https://user-images.githubusercontent.com/94174873/148406772-33e8edc0-b315-4d5e-b6a9-cdfce1715aaa.png)
+
 #### get filters
 ![generic filter](https://user-images.githubusercontent.com/94174873/148406791-327c75eb-37d3-4e52-9f0d-7d1b2d1bcde4.png)
 
