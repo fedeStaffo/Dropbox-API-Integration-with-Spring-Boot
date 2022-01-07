@@ -15,7 +15,7 @@ Avendo utilizzato il framework SpringBoot, è possibile avviare il programma da 
 
 ## Struttura dei dati
 
-I dati sono strutturati mediante una serie di campi:
+> I dati sono strutturati mediante una serie di campi:
 
 1. Nome del file/cartella
 2. Percorso del file/cartella
@@ -38,11 +38,11 @@ Tipo | Rotta | Funzione
 `GET` | /stats/shared/folder | restituisce una stringa con il numero di file condivisi nella cartella specificata divisi per estensione (X)
 `GET` | /filter/*type*/*parameter* | restituisce l'intero database di Dropbox filtrato secondo quanto specificato
 
-###### Nota bene: per le richieste contrassegnate dal simbolo (X) le estensioni consentite a scopo dimostrativo sono ".pdf", ".xls", ".jpg", ".doc", "pptx".
+> ###### Nota bene: per le richieste contrassegnate dal simbolo (X) le estensioni consentite a scopo dimostrativo sono ".pdf", ".xls", ".jpg", ".doc", "pptx".
 
 ### Esempi di risposta alle rotte:
 #### get /data
-viene restituita una lista di file e cartelle con i seguenti attributi, la medesima cosa avviene con i filtri che restituiscono la stessa tipologia di lista
+> viene restituita una lista di file e cartelle con i seguenti attributi, la medesima cosa avviene con i filtri che restituiscono la stessa tipologia di lista
 ```json
    {
         "tag": "folder",
@@ -66,7 +66,7 @@ viene restituita una lista di file e cartelle con i seguenti attributi, la medes
     },
 ```
 #### get /stats/dates/mostrecent/.pdf (idem per lastrecent)
-restituisce un **DataModel** ossia un file contente come attributi anno, mese, giorno e nome del file che soddisfa i requisiti della richiesta
+> restituisce un **DataModel** ossia un file contente come attributi anno, mese, giorno e nome del file che soddisfa i requisiti della richiesta
 ```json
 {
     "year": 2022,
@@ -93,7 +93,7 @@ I file con dimensione maggiore di 10000 sono:
 The number of .jpg files shared is: 2
 ```
 #### get /stats/shared/folder?path=/Solo mia
-restituisce in formato JSON uno **SharedModel** che mostra quanti file per estensione sono stati condivisi in quel percorso e il totale della loro somma
+> restituisce in formato JSON uno **SharedModel** che mostra quanti file per estensione sono stati condivisi in quel percorso e il totale della loro somma
 ```json
 {
     "tot": "Condivisi per cartella: 1",
@@ -107,7 +107,7 @@ restituisce in formato JSON uno **SharedModel** che mostra quanti file per esten
 
 ## Filtri
 
-I vari tipi di filtro sono:
+> I vari tipi di filtro sono:
 
 * **Name**: Restituisce tutti i file il cui nome inizia per la lettera considerata
 * **Extension**: Restituisce tutti i file con l'estensione cercata
@@ -163,6 +163,16 @@ I vari tipi di filtro sono:
 
 #### get filters
 ![generic filter](https://user-images.githubusercontent.com/94174873/148406791-327c75eb-37d3-4e52-9f0d-7d1b2d1bcde4.png)
+
+
+## Tests
+> Nel programma è presente anche una sezione di testing:
+
+* **Test 1**: Verifica che le liste in uscita dai filtri non siano vuote
+ 
+* **Test 2**: Verifica che il JSON generato non sia vuoto
+
+* **Test 3**: Verifica che non ci siano differenze tra i JSON generati
 
 
 ## Get Started
