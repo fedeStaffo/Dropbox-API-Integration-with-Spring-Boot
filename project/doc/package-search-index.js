@@ -1,1 +1,0 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"com.progettoOOP.project"},{"l":"exceptions"},{"l":"filters"},{"l":"stats"},{"l":"utility"}];updateSearchResults();
