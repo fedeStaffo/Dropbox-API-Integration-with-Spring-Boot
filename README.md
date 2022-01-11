@@ -121,7 +121,7 @@ The number of .jpg files shared is: 2
 ![rotte](https://user-images.githubusercontent.com/94174873/148401729-b00089d1-46b9-40dc-b74a-e57846018dee.png)
 
 ### Packages:
-![packages](https://user-images.githubusercontent.com/94174873/148401536-ae0624a1-2a40-4175-bf23-ba382a3a4996.jpg)
+![packages](https://user-images.githubusercontent.com/94174873/148985484-ac2cc4d0-9e31-4ca8-b365-d5f097686af0.png)
 
 ### utility:
 ![utility](https://user-images.githubusercontent.com/94174873/148401945-909c90e9-3764-4b98-9f52-b9f5d4177a61.png)
@@ -135,7 +135,7 @@ The number of .jpg files shared is: 2
 ### exceptions:
 ![exceptions](https://user-images.githubusercontent.com/94174873/148402114-4ffc7d9c-1508-4c8b-abec-860e82f29d3c.png)
 
-### com.progettoOOP.project
+### controller
 ![controller](https://user-images.githubusercontent.com/94174873/148406449-b130c00b-d6a8-4a06-ae19-6afcd26066e5.png)
 
 ### Sequenze:
