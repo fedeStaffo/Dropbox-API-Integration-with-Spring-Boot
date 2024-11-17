@@ -107,6 +107,32 @@ The data are structured with the following fields:
 The biggest .doc file is "report copy.doc" with a size of 12,864 kilobytes.
 ```
 
+**GET /stats/size/higherdim/10000 (same for lowerdim)**
+```txt
+Files larger than 10,000 bytes:
+7 PDF files
+1 Excel document
+5 JPG images
+1 PowerPoint presentation
+3 Word documents
+```
+**GET /stats/shared/extension/.jpg**
+```txt
+The number of .jpg files shared is: 2
+```
+**GET /stats/shared/folder?path=/Only mine**
+Returns a JSON *SharedModel* showing the count of shared files by extension in the specified folder, along with the total count.
+```json
+{
+    "tot": "Shared per folder: 1",
+    "extension1": ".pdf: 1",
+    "extension2": ".xls: 0",
+    "extension3": ".jpg: 0",
+    "extension4": ".pptx: 0",
+    "extension5": ".doc: 0"
+}
+```
+
 <a name="filters"/></a>
 
 ## 🔎 Filters
@@ -145,6 +171,32 @@ The available filter types are:
 
 ### Controller:
 ![Controller](https://user-images.githubusercontent.com/94174873/148406449-b130c00b-d6a8-4a06-ae19-6afcd26066e5.png)
+
+### Sequences:
+#### get data
+![get data](https://user-images.githubusercontent.com/94174873/148406587-5eb0c841-c898-4076-bb0f-30adb4ebb246.png)
+
+#### get stats on dates
+![dates1](https://user-images.githubusercontent.com/94174873/148406599-c3b6388a-44b0-478a-a946-3bf63ec0afdf.png)
+
+![dates2](https://user-images.githubusercontent.com/94174873/148406617-2b281baa-37cd-46ad-8d0f-4b1e292a3e60.png)
+
+#### get stats on size
+![size1](https://user-images.githubusercontent.com/94174873/148406642-205640cf-a755-460a-9f6b-acb9cc1bd65f.png)
+
+![size2](https://user-images.githubusercontent.com/94174873/148406662-0c703d45-9176-4229-a6a1-fa084bf6bf7c.png)
+
+![size3](https://user-images.githubusercontent.com/94174873/148406680-23b222fd-e980-49f5-b36c-74039cc7dc9d.png)
+
+![size4](https://user-images.githubusercontent.com/94174873/148406705-d9f7717d-8195-4b93-8de3-3fcac9af4935.png)
+
+#### get stats on shared files
+![shared1](https://user-images.githubusercontent.com/94174873/148406765-e2354979-8c05-46c2-80d4-9e2bd18e7590.png)
+
+![shared2](https://user-images.githubusercontent.com/94174873/148406772-33e8edc0-b315-4d5e-b6a9-cdfce1715aaa.png)
+
+#### get filters
+![generic filter](https://user-images.githubusercontent.com/94174873/148406791-327c75eb-37d3-4e52-9f0d-7d1b2d1bcde4.png)
 
 <a name="tests"/></a>
 
