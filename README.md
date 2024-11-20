@@ -1,6 +1,8 @@
 # Dropbox API Integration with Spring Boot
 
-Project for the Object-Oriented Programming exam, Università Politecnica delle Marche, Academic Year 2021/2022
+This project incorporates Dropbox API into a Spring Boot application, enabling users to perform a range of file operations via a web service.
+The implementation utilises Java for the core logic, Spring Boot for the construction of the web application, Maven for dependency management, and Postman for testing of the API endpoints. 
+The service allows users to interact with Dropbox, performing tasks such as listing files, retrieving file statistics, and filtering data based on specific criteria.
 
 <a name="index"></a>
 
